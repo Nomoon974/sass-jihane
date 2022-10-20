@@ -1,0 +1,256 @@
+* {
+  margin: 0
+}
+
+html, body{
+  min-height: 100vh;
+  width: 100vw;
+}
+
+@mixin bck-col($col, $w, $h) {
+  background-color: $col;
+  width: $w;
+  height: $h;
+}
+
+@mixin transi {
+  transition: all 300ms ease-in;
+}
+
+.div1 {
+  @include bck-col(sandybrown, 500px, 500px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  h1{
+    background-color: white;
+    width: max-content;
+    transition: all 200ms ease;
+  }
+  :hover{
+    transform: scale(1.1);
+  }
+}
+
+.div2{
+  @include bck-col(teal, 500px, 200px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .a1{
+    @include bck-col(white,30px ,30px );
+    border-radius: 100%;
+    text-align: center;
+    border: solid 1px black;
+    @include transi();
+  }
+
+  .a2{
+    @include bck-col(none,30px ,30px );
+    border-radius: 100%;
+    text-align: center;
+    @include transi();
+    border: solid 1px black;
+    
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.582);
+    }
+
+    &:focus {
+      background-color: aliceblue;
+    }
+  }
+
+  .a3{
+    @include bck-col(none,30px ,30px );
+    border-radius: 100%;
+    text-align: center;
+    @include transi();
+    border: solid 1px black;
+
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.582);
+    }
+
+  }
+
+  .a4{
+    @include bck-col(none,30px ,30px );
+    border-radius: 100%;
+    text-align: center;
+    @include transi();
+    border: solid 1px black;
+
+    &:hover{
+      background-color: rgba(0, 0, 0, 0.582);
+    }
+  }
+
+}
+
+
+
+.div3 {
+  @include bck-col(white,400px ,400px );
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  transition: all 100ms ease-in;
+
+  .a1,.a2,.a3{
+    @include bck-col(pink,400px ,50px );
+    transition: all 100ms ease-in;
+    transform-origin: center;
+  }
+
+  &:hover .a1 {
+    transform: rotate(45deg) translate(140px,0);
+    
+  }
+
+  &:hover .a2 {
+    display: none;
+  }
+
+  &:hover .a3 {
+    transform: rotate(-45deg) translate(140px, 0);
+  }
+    
+}
+
+.div4 {
+  @include bck-col(none,800px ,500px );
+  transition: all 300ms ease-in-out;
+  max-width: 800px;
+  display: flex;
+
+  .a1 {
+    @include bck-col(rgb(24, 28, 51), 25% , inherit );
+    transition: all 200ms ease-in;
+
+    &:hover{
+      width: 200%;
+    }
+  }
+
+  .a2{
+    @include bck-col(green, 25%, inherit);
+    transition: all 200ms ease-in;
+    &:hover{
+      width: 200%;
+    }
+  }
+
+  .a3{
+    @include bck-col(rgb(24, 28, 51), 25% , inherit );
+    transition: all 300ms ease-in-out;
+    &:hover{
+      width: 200%;
+    }
+  }
+
+  .a4{
+    @include bck-col(green, 25%, inherit);
+    transition: all 200ms ease-in;
+    &:hover{
+      width: 200%;
+    }
+  }
+
+
+}
+
+.div5 {
+  @include bck-col(white,1000px ,500px );
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  .p-hide{
+    position: absolute;
+    left: 15%;
+    top:32%;
+    @include bck-col(rgb(109, 143, 245), 150px, max-ontent);
+    color: azure;
+    visibility: hidden;
+    z-index: 99;
+  }
+
+  .p-span {
+    @include bck-col(rgb(109, 143, 245), max-content ,max-content );
+
+    &:hover ~ .p-hide {
+      visibility: visible;
+    }
+  }
+}
+
+
+.div6 {
+  background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+  width: 500px;
+  height: 500px;
+  background-size: 400% 400%;
+  animation: zoom 10s ease infinite;
+}
+
+
+.div7 {
+  width: 500px;
+  height: 500px;
+  position: relative;
+
+  .cloud1 {
+    position: absolute;
+    top: 50px;
+    left: 80px;
+  }
+
+  .cloud2 {
+    position: absolute;
+  }
+
+  img{
+    width: 20%;
+    animation: ciel 30s ease infinite;
+  }
+}
+
+
+@keyframes ciel {
+  0% {
+    transform: translateX(0px);
+  }
+
+  50% {
+    transform: translateX(400px);
+  }
+
+  100% {
+    transform: translateX(0px);
+
+  }
+}
+
+
+@keyframes zoom {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+
+
+}
